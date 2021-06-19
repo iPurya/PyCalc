@@ -201,12 +201,12 @@ class Ui_PyCalc(object):
 "border-radius: 10px;\n"
 "font:10px bold aria;")
         self.closeButton.setObjectName("closeButton")
+        self.closeButton.clicked.connect(lambda: PyCalc.close())
         self.horizontalLayout.addWidget(self.bgFrame)
         PyCalc.setCentralWidget(self.StyleSheet)
 
         self.retranslateUi(PyCalc)
         QtCore.QMetaObject.connectSlotsByName(PyCalc)
-
     def retranslateUi(self, PyCalc):
         _translate = QtCore.QCoreApplication.translate
         PyCalc.setWindowTitle(_translate("PyCalc", "MainWindow"))
@@ -231,8 +231,7 @@ class Ui_PyCalc(object):
         self.actionDot.setText(_translate("PyCalc", "."))
         self.num0.setText(_translate("PyCalc", "0"))
         self.closeButton.setText(_translate("PyCalc", "X"))
-
-
+      
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
