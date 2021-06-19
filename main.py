@@ -13,6 +13,8 @@ class Ui_PyCalc(object):
     def setupUi(self, PyCalc):
         PyCalc.setObjectName("PyCalc")
         PyCalc.resize(338, 520)
+        PyCalc.setWindowFlag(QtCore.Qt.WindowType.FramelessWindowHint)
+        PyCalc.setAttribute(QtCore.Qt.WidgetAttribute.WA_TranslucentBackground)
         self.StyleSheet = QtWidgets.QWidget(PyCalc)
         font = QtGui.QFont()
         font.setFamily("Courier")
