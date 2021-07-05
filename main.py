@@ -53,6 +53,8 @@ class Ui_MainWindow(object):
 
         self.bgFrame = QtWidgets.QFrame(self.StyleSheet)
         self.bgFrame.setObjectName("bgFrame")
+        self.bgFrame.setGraphicsEffect(QtWidgets.QGraphicsDropShadowEffect(blurRadius=15, xOffset=0, yOffset=0,color=QtGui.QColor("rgb(51, 57, 68)")))
+        
 
         self.outputLabel = QtWidgets.QLabel(self.bgFrame,text="0")
         self.outputLabel.setObjectName("outputLabel")
@@ -64,9 +66,10 @@ class Ui_MainWindow(object):
 
         self.buttonsFrame = QtWidgets.QFrame(self.bgFrame)
         self.buttonsFrame.setObjectName("buttonsFrame")
-        self.buttonsFrame.setGeometry(QtCore.QRect(0, 100, 320, 400))
+        self.buttonsFrame.setGeometry(QtCore.QRect(-1, 100, 320, 400))
         self.buttonsFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
-    
+        self.buttonsFrame.setGraphicsEffect(QtWidgets.QGraphicsDropShadowEffect(blurRadius=30, xOffset=0, yOffset=-5,color=QtGui.QColor("black")))
+
         self.actionC = QtWidgets.QPushButton(self.buttonsFrame,text="C",clicked=lambda : self.presses ("C"))
         self.actionC.setGeometry(QtCore.QRect(36, 42, 45, 45))
         self.actionC.setStyleSheet("background-color: #FF605C")
@@ -78,6 +81,7 @@ class Ui_MainWindow(object):
         self.actionSlash.setStyleSheet("background-color: rgb(51, 57, 68);")
         self.actionSlash.setObjectName("actionSlash")
         self.actionSlash.setShortcut("/")
+        #self.actionSlash.setGraphicsEffect(shadow)
 
         self.actionMult = QtWidgets.QPushButton(self.buttonsFrame,text="*",clicked=lambda : self.presses ("*"))
         self.actionMult.setGeometry(QtCore.QRect(173, 42, 45, 45))
@@ -236,7 +240,7 @@ class MyWin(QtWidgets.QMainWindow, Ui_MainWindow):
 
         elif not last_var_isdigit and not event.isdigit() and self.action:
             self.val = self.val[:-1] + event
-            
+
         else:
             if not event.isdigit() and event != ".":
                 self.action = event
